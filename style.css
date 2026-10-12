@@ -1,0 +1,371 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: #02022b;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+
+header {
+    text-align: center;
+    padding: 28px 0 50px;
+}
+
+
+header h1 {
+    font-size: 32px;
+}
+
+
+/* ================= MAIN ================= */
+
+main {
+    width: 96%;
+    max-width: 1350px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(600px, 2.5fr)
+        minmax(300px, 1fr);
+
+    grid-template-areas:
+        "chart stocks"
+        "details stocks";
+
+    gap: 25px;
+}
+
+
+/* ================= CHART ================= */
+
+.chart-section {
+    grid-area: chart;
+
+    background-color: #050553;
+
+    border-radius: 10px;
+
+    padding: 20px;
+}
+
+
+.chart-wrapper {
+    position: relative;
+
+    width: 100%;
+    height: 430px;
+}
+
+
+#stockChart {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+
+/* ================= RANGE BUTTONS ================= */
+
+.range-buttons {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    margin-top: 10px;
+}
+
+
+.range-btn {
+    border: none;
+
+    background-color: #0808a8;
+
+    color: white;
+
+    padding: 7px 14px;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+.range-btn:hover {
+    background-color: #1515d4;
+}
+
+
+.range-btn.active {
+    background-color: #1515d4;
+}
+
+
+/* ================= TOOLTIP ================= */
+
+.chart-tooltip {
+    position: absolute;
+
+    display: none;
+
+    background-color: #050553;
+
+    border: 2px solid #00ff2a;
+
+    padding: 8px 12px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+
+    pointer-events: none;
+
+    white-space: nowrap;
+
+    z-index: 10;
+}
+
+
+/* ================= CHART STATS ================= */
+
+.chart-stats {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 60px;
+
+    margin-top: 20px;
+}
+
+
+.chart-stats div {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.chart-stats span {
+    color: #aaa;
+    font-size: 13px;
+}
+
+
+.chart-stats strong {
+    font-size: 17px;
+}
+
+
+/* ================= STOCK LIST ================= */
+
+.stock-list-section {
+    grid-area: stocks;
+
+    padding: 10px 20px;
+}
+
+
+#stock-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.stock-item {
+    display: grid;
+
+    grid-template-columns:
+        65px
+        90px
+        70px;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.stock-button {
+    background-color: transparent;
+
+    color: white;
+
+    border: 1px solid white;
+
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.stock-button:hover {
+    background-color: #11118b;
+}
+
+
+.stock-button.selected {
+    background-color: #1111a8;
+}
+
+
+.stock-price {
+    font-size: 15px;
+}
+
+
+.stock-profit {
+    font-size: 15px;
+}
+
+
+.profit-positive {
+    color: #00ff55;
+}
+
+
+.profit-negative {
+    color: red;
+}
+
+
+.loading {
+    color: #aaa;
+}
+
+
+/* ================= DETAILS ================= */
+
+.details-section {
+    grid-area: details;
+
+    background-color: #050553;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    margin-bottom: 30px;
+}
+
+
+.details-section h2 {
+    margin-bottom: 20px;
+
+    font-size: 23px;
+}
+
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns:
+        180px
+        180px
+        180px;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+.detail-card {
+    background-color: #02022b;
+
+    border-radius: 8px;
+
+    padding: 15px;
+}
+
+
+.detail-card span {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+
+.detail-card strong {
+    font-size: 20px;
+}
+
+
+.summary {
+    line-height: 1.6;
+
+    color: #ddd;
+
+    max-width: 900px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    main {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "chart"
+            "stocks"
+            "details";
+    }
+
+
+    .stock-list-section {
+        padding: 20px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .range-buttons {
+        gap: 8px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .chart-wrapper {
+        height: 300px;
+    }
+
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

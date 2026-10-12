@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stock Market Analysis</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Stock Market Analysis</h1>
+    </header>
+
+
+    <main>
+
+        <!-- ================= CHART SECTION ================= -->
+
+        <section class="chart-section">
+
+            <div class="chart-wrapper">
+
+                <canvas id="stockChart"></canvas>
+
+                <!-- Tooltip -->
+                <div id="chart-tooltip" class="chart-tooltip"></div>
+
+            </div>
+
+
+            <!-- Range buttons -->
+
+            <div class="range-buttons">
+
+                <button class="range-btn active" data-range="1month">
+                    1 Month
+                </button>
+
+                <button class="range-btn" data-range="3month">
+                    3 Month
+                </button>
+
+                <button class="range-btn" data-range="1year">
+                    1 Year
+                </button>
+
+                <button class="range-btn" data-range="5year">
+                    5 Years
+                </button>
+
+            </div>
+
+
+            <!-- Peak and Low -->
+
+            <div class="chart-stats">
+
+                <div>
+                    <span>Peak</span>
+                    <strong id="peak-value">--</strong>
+                </div>
+
+                <div>
+                    <span>Low</span>
+                    <strong id="low-value">--</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STOCK LIST ================= -->
+
+        <section class="stock-list-section">
+
+            <div id="stock-container">
+
+                <p class="loading">
+                    Loading stocks...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DETAILS SECTION ================= -->
+
+        <section class="details-section">
+
+            <h2>Stock Details</h2>
+
+            <div id="stock-details">
+
+                <p>Select a stock to see details.</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
